@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoxieSnap - Blog</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./assets/images/favicon.png"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <div class="ajax_load">
+      <div class="ajax_load_box">
+        <div class="ajax_load_box_circle"></div>
+        <p class="ajax_load_box_title">Aguarde, carregando...</p>
+      </div>
+    </div>
+
+    <!--HEADER-->
+    <header class="main_header gradient gradient-blue">
+      <div class="container">
+        <div class="main_header_logo">
+          <a title="Foxie Snap" href="./index.html">
+            <img src="./assets/images/logo_foxiesnap.png" alt="FoxieSnap" />
+          </a>
+        </div>
+
+        <nav class="main_header_nav">
+          <span
+            class="main_header_nav_mobile j_menu_mobile_open icon-menu icon-notext radius transition"
+          ></span>
+          <div class="main_header_nav_links j_menu_mobile_tab">
+            <span
+              class="main_header_nav_mobile_close j_menu_mobile_close icon-error icon-notext transition"
+            ></span>
+            <a class="link transition radius" title="Home" href="index.html"
+              >Home</a
+            >
+            <a class="link transition radius" title="Sobre" href="sobre.html"
+              >Sobre</a
+            >
+            <a class="link transition radius" title="Blog" href="blog.html"
+              >Blog</a
+            >
+            <a
+              class="link login transition radius"
+              title="Acessar"
+              href="login.html"
+              >Acessar</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <article class="post_page">
+      <header class="post_page_header">
+        <div class="post_page_hero">
+          <h1>
+            Aprenda a criar arquivo PDF utilizando PHP de forma descomplicada
+          </h1>
+          <img
+            class="post_page_cover"
+            alt="Aprenda a criar arquivo PDF utilizando PHP de forma descomplicada"
+            title="Aprenda a criar arquivo PDF utilizando PHP de forma descomplicada"
+            src="./assets/blog/aprenda-a-criar-arquivo-pdf-utilizando-php-de-forma-descomplicada-1526479202.jpg"
+          />
+          <div class="post_page_meta">
+            <div class="author">
+              <div>
+                <img alt="Foxie" title="Foxie" src="./assets/images/logo.png" />
+              </div>
+              <div class="name">Por: Foxie</div>
+            </div>
+            <div class="date">Dia 01/01/2023</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="post_page_content">
+        <div class="htmlchars">
+          <h2>
+            Gere relatórios, demonstrativos de pagamento, contratos ou qualquer
+            conteúdo que necessite que seja exportado em PDF
+          </h2>
+          <p>
+            Salve salve moqueridos, Foxie aqui com mais uma aula e agora a gente
+            vai ver como gerar arquivos PDF com uma biblioteca muuuito tranquila
+            de se trabalhar.
+          </p>
+          <h3>Instalação</h3>
+          <p>
+            Sem segredo nenhum, vamos fazer a instalação via composer. Não vou
+            ficar entrando em detalhes aqui de como funciona o processo de
+            instalação do composer, instalação global ou como se cria um
+            projeto.
+          </p>
+          <p>
+            Eu vou executando na minha máquina e acredito que você consiga fazer
+            sem nenhum tipo de problema desse lado aí.
+          </p>
+          <h3>Repositório</h3>
+          <p>
+            Como essa aula é bem tranquila de se fazer, eu não disponibilizei
+            nenhum repositório dessa vez com o conteúdo da aula.
+          </p>
+          <p>
+            A biblioteca é bastante tranquila de se trabalhar, e o nosso único
+            trabalho aqui dentro é simplesmente consumí-la gerando um html e
+            informando o conteúdo para dentro do método responsável pela geração
+            do PDF
+          </p>
+          <h3>Dica</h3>
+          <p>
+            Nesse caso, o ideal é que a estilização (a formatação com o CSS)
+            esteja feita de forma inline. Por exemplo, ao criar determinado
+            elemento, você ataca diretamente as propriedades dele, como:
+          </p>
+          <pre class="brush: php;">
+&lt;table style='width: 100%, background-color: #CCC, ...'&gt;</pre
+          >
+          <p>
+            Assim, quando converter esse HTML em PDF, toda a formatação será
+            levada em consideração e você terá o seu arquivo exatamente como foi
+            programado.
+          </p>
+          <p>
+            Outro ponto importante ainda, é a questão das fontes, originalmente
+            a biblioteca vem com a: sans, serif e sans-serif. Você até consegue
+            criar o PDF com a Times New Roman por exemplo, mas isso porque essa
+            é uma fonte comum em praticamente todos os sistemas operacionais.
+          </p>
+          <p>
+            Caso queria adicionar outra fonte, só consultar a documentação e ver
+            o passo a passo!
+          </p>
+          <h3>Documentação</h3>
+          <p>
+            A documentação da biblioteca pode ser encontrada no link abaixo:
+          </p>
+          <p>
+            <a href="https://mpdf.github.io/" target="_blank"
+              >Link para a documentação da biblioteca mPDF</a
+            >
+          </p>
+          <p>
+            É bem tranquilo de interpretar o conteúdo e possui uma documentação
+            bastante rica. Na grande maioria dos casos há exemplos da aplicação
+            do código.
+          </p>
+          <h3>Topo do Documento vs Cabeçalho</h3>
+          <p>
+            A diferença básica entre eles, é que o Topo do Documento terá
+            somente uma frase ou uma descrição do que se destina esse documento
+            e terá uma formatação básica... Como por exemplo:
+          </p>
+          <p style="text-align: center">CONTRATO DE PRESTAÇÃO DE SERVIÇO</p>
+          <p>
+            Isso é um topo de documento... Geralmente será em letras maiúsculas,
+            centralizado com a fonte um pouco maior...
+          </p>
+          <p>
+            Já o Cabeçalho, é o que se repete em todas as páginas... Pode ser um
+            marcador, um contador de página ou simplesmente o nome da empresa
+            escrito de maneira mais discreta.
+          </p>
+          <h3>Cabeçalhos e Rodapés</h3>
+          <p>
+            Provavelmente o seu relatório terá que ter cabeçalho e rodapé, e
+            saiba que você pode personalizar com HTML e CSS embora os recursos
+            dentro da biblioteca são um pouco limitadas...
+          </p>
+          <p>
+            Uma das principais questões levantadas, é a necessidade de ter o
+            topo da primeira página com uma formato (contendo logo da empresa,
+            nome, um certo alinhamento...) e nas demais páginas você colocar
+            simplesmente um contador de páginas por exemplo ou então algo mais
+            discreto para não ocupar espaço na página.
+          </p>
+          <p>
+            Isso pode ser resolvido de uma maneira bastante simples, fazendo uma
+            pequena alteração no corpo do nosso documento!
+          </p>
+          <p>
+            Se você já tem a variável $html e $table alimentadas, você pode
+            fazer o seguinte:
+          </p>
+          <pre
+            class="brush: php;"
+          >$htmlContent = '<br />   &lt;html&gt;<br />      &lt;body&gt;<br />         &lt;htmlpageheader name="mainHeader" style="display:none"&gt;<br />            &lt;div style="text-align: right; border-bottom: 1px solid #000000; font-weight: bold; font-size: 10pt;"&gt;<br />               Topo Principal<br />            &lt;/div&gt;<br />         &lt;/htmlpageheader&gt;<br /> <br />         &lt;htmlpageheader name="otherHeader" style="display:none"&gt;<br />            &lt;div style="border-bottom: 1px solid #000000; font-weight: bold; font-size: 10pt;"&gt;<br />               Topo Secundário {PAGENO}/{nbpg}<br />            &lt;/div&gt;<br />         &lt;/htmlpageheader&gt;<br /> <br />         &lt;sethtmlpageheader name="mainHeader" value="on" show-this-page="1" /&gt;<br />         &lt;sethtmlpageheader name="otherHeader" value="on" /&gt;<br /> <br />         ' . $html . $table . '<br /><br />      &lt;/body&gt;<br />&lt;/html&gt;';</pre>
+          <p>
+            Se você for analisar o conteúdo dessa string, temos a variável
+            <strong>$htmlContent</strong> criada, com uma estrutura prévia de
+            html passando duas tags específicas da biblioteca, que no caso é a
+            <strong>&lt;htmlpageheader&gt;</strong>. Você pode notar que para
+            cada uma tags há um nome, <strong>mainHeader</strong> e
+            <strong>otherHeader</strong> respectivamente...
+          </p>
+          <p>
+            Logo abaixo, você tem um set de parâmetros, informando que a
+            primeira página deve conter o topo <strong>mainHeader</strong>, e as
+            demais, o <strong>otherHeader</strong>.
+          </p>
+          <p>
+            É claro que a personalização de cada uma das sessões, fica a seu
+            critério definir!
+          </p>
+          <p>
+            Caso você queira, você pode criar uma classe para composer a mpdf e
+            organizar melhor o seu código... Assim fica mais fácil e você pode
+            colocar o conteúdo específico de acordo com a sua necessidade.
+          </p>
+          <h3>Feedback</h3>
+          <p>
+            Me conta o que você achou dessa aula! Agora você já está pronto para
+            gerar seus PDF's com o PHP de forma bem descomplicada e produtiva.
+          </p>
+          <p>Forte abraço</p>
+        </div>
+
+        <aside class="social_share">
+          <h3 class="social_share_title icon-heartbeat">
+            Ajude seus amigos a gerenciar:
+          </h3>
+          <div class="social_share_medias">
+            <!--facebook-->
+            <div
+              class="fb-share-button"
+              data-href=""
+              data-layout="button_count"
+              data-size="large"
+              data-mobile-iframe="true"
+            >
+              <a target="_blank" href="" class="fb-xfbml-parse-ignore"
+                >Compartilhar</a
+              >
+            </div>
+
+            <!--twitter-->
+            <a
+              href=""
+              class="twitter-share-button"
+              data-size="large"
+              data-text=""
+              data-url=""
+              data-via=""
+              data-show-count="true"
+              >Tweet</a
+            >
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="footer_optout">
+      <div class="footer_optout_content content">
+        <img class="icon" src="./assets/images/logo.png" alt="logo" />
+        <h2>Comece a gerenciar seus ensaios agora mesmo</h2>
+        <p>É rápido e simples!</p>
+        <a
+          href="./cadastro.html"
+          class="footer_optout_btn gradient gradient-blue gradient-hover radius icon-check-square-o"
+        >
+          Quero gerenciar
+        </a>
+      </div>
+    </article>
+    <!--FOOTER-->
+    <footer class="main_footer">
+      <div class="container content">
+        <section class="main_footer_content">
+          <article class="main_footer_content_item">
+            <h2>Sobre:</h2>
+            <p>
+              Com FoxieSnap é mais fácil gerenciar sua empresa de fotografia.
+              Simples, poderoso e gratuito, por que de complicado já basta a
+              vida.
+            </p>
+            <a title="Termos de uso" href="./termos.html">Termos de uso</a>
+          </article>
+
+          <article class="main_footer_content_item">
+            <h2>Mais:</h2>
+            <a class="link transition radius" title="Home" href="index.html"
+              >Home</a
+            >
+            <a class="link transition radius" title="Sobre" href="sobre.html"
+              >Sobre</a
+            >
+            <a class="link transition radius" title="Blog" href="blog.html"
+              >Blog</a
+            >
+            <a class="link transition radius" title="Entrar" href="login.html"
+              >Entrar</a
+            >
+          </article>
+
+          <article class="main_footer_content_item">
+            <h2>Contato:</h2>
+            <p class="icon-phone">
+              <b>Telefone:</b><br />
+              +55 12 98236-5340
+            </p>
+            <p class="icon-envelope">
+              <b>Email:</b><br />
+              contato@foxiesnap.com
+            </p>
+            <p class="icon-map-marker">
+              <b>Endereço:</b><br />
+              São José dos Campos, SP/Brasil
+            </p>
+          </article>
+
+          <article class="main_footer_content_item social">
+            <h2>Social:</h2>
+            <a
+              target="_blank"
+              class="icon-facebook"
+              href="https://www.facebook.com/"
+              title="FoxieSnap no Facebook"
+              >/FoxieSnap</a
+            >
+            <a
+              target="_blank"
+              class="icon-instagram"
+              href="https://www.instagram.com/"
+              title="FoxieSnap no Instagram"
+              >@FoxieSnap</a
+            >
+            <a
+              target="_blank"
+              class="icon-youtube"
+              href="https://www.youtube.com/"
+              title="FoxieSnap no YouTube"
+              >/FoxieSnap</a
+            >
+          </article>
+        </section>
+      </div>
+    </footer>
+    <script src="./assets/jquery.min.js"></script>
+    <script src="./assets/jquery-ui.js"></script>
+    <script src="./assets/scripts.js"></script>
+  </body>
+</html>

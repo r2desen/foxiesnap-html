@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoxieSnap - Blog</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./assets/images/favicon.png"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <div class="ajax_load">
+      <div class="ajax_load_box">
+        <div class="ajax_load_box_circle"></div>
+        <p class="ajax_load_box_title">Aguarde, carregando...</p>
+      </div>
+    </div>
+
+    <!--HEADER-->
+    <header class="main_header gradient gradient-blue">
+      <div class="container">
+        <div class="main_header_logo">
+          <a title="Foxie Snap" href="./index.html">
+            <img src="./assets/images/logo_foxiesnap.png" alt="FoxieSnap" />
+          </a>
+        </div>
+
+        <nav class="main_header_nav">
+          <span
+            class="main_header_nav_mobile j_menu_mobile_open icon-menu icon-notext radius transition"
+          ></span>
+          <div class="main_header_nav_links j_menu_mobile_tab">
+            <span
+              class="main_header_nav_mobile_close j_menu_mobile_close icon-error icon-notext transition"
+            ></span>
+            <a class="link transition radius" title="Home" href="index.html"
+              >Home</a
+            >
+            <a class="link transition radius" title="Sobre" href="sobre.html"
+              >Sobre</a
+            >
+            <a class="link transition radius" title="Blog" href="blog.html"
+              >Blog</a
+            >
+            <a
+              class="link login transition radius"
+              title="Acessar"
+              href="login.html"
+              >Acessar</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <article class="post_page">
+      <header class="post_page_header">
+        <div class="post_page_hero">
+          <h1>
+            Criando relatórios em gráficos com PHP utilizando a biblioteca
+            ChartJS e Banco de Dados
+          </h1>
+          <img
+            class="post_page_cover"
+            alt="Criando relatórios em gráficos com PHP utilizando a biblioteca ChartJS e Banco de Dados"
+            title="Criando relatórios em gráficos com PHP utilizando a biblioteca ChartJS e Banco de Dados"
+            src="./assets/blog/criando-relatorios-em-graficos-com-php-utilizando-a-biblioteca-chartjs-e-banco-de-dados-1532694577.png"
+          />
+          <div class="post_page_meta">
+            <div class="author">
+              <div>
+                <img alt="Foxie" title="Foxie" src="./assets/images/logo.png" />
+              </div>
+              <div class="name">Por: Foxie</div>
+            </div>
+            <div class="date">Dia 16/01/2023</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="post_page_content">
+        <div class="htmlchars">
+          <h2>
+            Embora a biblioteca seja em javascript, conseguimos fazer a chamada
+            de todas as propriedades com o PHP usando uma técnica para informar
+            os dados via data-attributes
+          </h2>
+          <p>Salve salve moquerido, seja muito bem vindo a mais uma aula.</p>
+          <p>
+            Agora vamos ver como trabalhar com gráficos para que você possa
+            informar as métricas para o seu cliente de uma maneira descomplicada
+            e que seja mais fácil de fazer a leitura.
+          </p>
+          <p>
+            Para que a gente possa desenvolver essa atividade, vamos precisar
+            fazer o uso de uma biblioteca! Assim a gente foca em de fato gerar
+            as informações e a renderização do plano cartesiano você não precisa
+            esquentar a cabeça.
+          </p>
+          <h3>Lib javascript</h3>
+          <p>
+            Realmente a biblioteca que baixamos é em javascript! Você até
+            poderia ter um caminho mais curto para desenvolver essa estrutura,
+            se você colocasse código PHP dentro da tag script.
+          </p>
+          <p>
+            Não há uma lei que proiba isso, no entanto que é até possível... Mas
+            é claro que não é uma boa prática essa situação, pois caso isso
+            aconteça, você não consegue modularizar o seu código, vai ter
+            problemas com reuso e não vai poder minificar o arquivo para
+            publicar na internet.
+          </p>
+          <p>
+            Então vamos trabalhar com uma outra técnica para que possamos
+            informar todos os parâmetros via atributo do elemento, e
+            posteriormente a gente pega esses dados com o javascript e adapta da
+            forma que for necessário.
+            <strong>Já vamos falar sobre essa técnica mais adiante!</strong>
+          </p>
+          <p>
+            Por consequência disso, vamos ter um arquivo totalmente em
+            javascript e que você pode modularizar ele de acordo com cada tipo
+            de gráfico! Aqui já entra um processo um pouco mais amplo de
+            refatoração de código, de efetuar essa carga somente se tiver um
+            elemento que irá fazer o uso...
+          </p>
+          <p>
+            Mais uma vez podemos nos aprofundar em outro tópico que daria outra
+            aula, mas como o nosso foco aqui é criar um gráfico para colocar na
+            nossa aplicação, vamos seguir em frente por hora.
+          </p>
+          <h3>Passagem de valores por data-attributes</h3>
+          <p>
+            Essa técnica é bastante simples e consiste em montar o nó do
+            componente HTML já com os dados alimentados.
+          </p>
+          <p>Não entendeu? Pensa assim:</p>
+          <pre class="brush: php;">
+&lt;canvas class="myChart"&gt;&lt;/canvas&gt;</pre
+          >
+          <p>
+            Com isso, você não sabe quais informações vão para dentro dele, qual
+            será a cor do seu gráfico, se o título será exibido ou se estará
+            oculto, quantas posições serão informadas e nem mesmo o valor de
+            cada um dos eixos!
+          </p>
+          <p>
+            Agora a gente pode trabalhar com o data-* para informar algumas
+            propriedades:
+          </p>
+          <pre
+            class="brush: php;"
+          >&lt;canvas class="myChart" <br />      data-chart-background-color="blue"<br />      data-chart-border-color="blue"&gt;&lt;/canvas&gt;</pre>
+          <p>
+            Assim você já consegue informar alguns dados que podem ser
+            resgatados de forma bastante simples pelo javascript, e forçar
+            determinados parâmetros. Para recuperar essas informações, ficaria
+            assim:
+          </p>
+          <pre
+            class="brush: php;"
+          >&lt;script&gt;<br />$(function(){<br />   var myChart = $('.myChart');<br />   console.log(myChart.data('chart-background-color'));<br />});<br />&lt;/script&gt;</pre>
+          <p>
+            Note que para fazer isso, estamos dentro da tag script, e
+            inicializamos o jquery!
+          </p>
+          <p>
+            Feito isso, basta criar uma variável para armazenar o objeto que foi
+            resgatado com o seletor e usar essa variável como base para pegar o
+            atributo desejado.
+          </p>
+          <p>
+            Veja que é informado o <strong>.data('nome-atributo')</strong> e não
+            há o data- no início conforme é demarcado no HTML. Fica tranquilo
+            que é exatamente assim que funciona.
+          </p>
+          <p>
+            Uma vez feito isso, basta você replicar essa mesma técnica para
+            outras posições que você queira!
+          </p>
+          <p>
+            Quanto tiver um vetor, você pode concatenar cada uma das posições e
+            adicionar um caracter delimitador entre elas. No caso dessa aula, eu
+            usei o <strong>pipe (|)</strong> porque eu sei que isso não vai
+            aparecer em nenhuma ocorrência das minhas posições.
+          </p>
+          <p>
+            Então quando eu tenho que resgatar vários
+            <strong>labels</strong> por exemplo, eu concateno todos eles e
+            depois executo um split com o javascript e roda tudo lindo :)
+          </p>
+          <h3>Adicionando o PHP</h3>
+          <p>
+            Se você for analisar, até agora não falamos sobre o PHP! Mas além
+            dele estar presente na consulta ao banco de dados das informações,
+            você pode criar uma classe para funcionar como um helper para
+            padronizar esse comportamento.
+          </p>
+          <p>
+            Então você pode determinar uma certa estrutura que seja capaz de
+            definir as cores com ou sem opacidade, obter o nome das colunas que
+            são utilizados para definir as posições dentro do seu gráfico e
+            ainda o valor de cada uma delas respectivamente.
+          </p>
+          <p>
+            A principal função do PHP nesse momento, vai ser nos prover reuso do
+            código e padronização das chamadas de cada atributo que precisamos
+            informar!
+          </p>
+          <h3>Precisa de mais cores?</h3>
+          <p>
+            Se você seguir a aula, você vai notar que a nossa classe PHP possui
+            3 cores pré-definidas, mas que elas se repetem quando o meu gráfico
+            possui mais indicadores...
+          </p>
+          <p>
+            Então você pode querer adicionar mais cores ao seu gráfico ou ainda
+            pegar outras tonalidades para ficar mais coerente com a sua
+            aplicação.
+          </p>
+          <p>
+            <strong
+              >Eu consegui essas cores usando um código de dentro do codepen
+              :)</strong
+            >
+          </p>
+          <p>
+            Repliquei ele para minha conta e você consegue
+            <a href="https://codepen.io/guhweb/pen/XBgGRd" target="_blank"
+              >acessar clicando nesse link aqui</a
+            >!
+          </p>
+          <p>
+            Basicamente o que você precisa fazer é usar o seletor de cor até
+            encontrar a desejada e pegar o código dela em RGB. Como você também
+            deve saber, você deve adicionar uma propriedade a mais para informar
+            a opacidade :)
+          </p>
+          <h3>Feedbacks</h3>
+          <p>
+            Se você curtiu essa aula e conseguiu reproduzir aí no seu ambiente,
+            me deixe saber! E também se colocar pra rodar em algum cliente com
+            essa mesma técnica que vimos aqui :)
+          </p>
+          <p>Forte abraço, e a gente se vê na próxima aula!</p>
+        </div>
+
+        <aside class="social_share">
+          <h3 class="social_share_title icon-heartbeat">
+            Ajude seus amigos a gerenciar:
+          </h3>
+          <div class="social_share_medias">
+            <!--facebook-->
+            <div
+              class="fb-share-button"
+              data-href=""
+              data-layout="button_count"
+              data-size="large"
+              data-mobile-iframe="true"
+            >
+              <a target="_blank" href="" class="fb-xfbml-parse-ignore"
+                >Compartilhar</a
+              >
+            </div>
+
+            <!--twitter-->
+            <a
+              href=""
+              class="twitter-share-button"
+              data-size="large"
+              data-text=""
+              data-url=""
+              data-via=""
+              data-show-count="true"
+              >Tweet</a
+            >
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="footer_optout">
+      <div class="footer_optout_content content">
+        <img class="icon" src="./assets/images/logo.png" alt="logo" />
+        <h2>Comece a gerenciar seus ensaios agora mesmo</h2>
+        <p>É rápido e simples!</p>
+        <a
+          href="./cadastro.html"
+          class="footer_optout_btn gradient gradient-blue gradient-hover radius icon-check-square-o"
+        >
+          Quero gerenciar
+        </a>
+      </div>
+    </article>
+    <!--FOOTER-->
+    <footer class="main_footer">
+      <div class="container content">
+        <section class="main_footer_content">
+          <article class="main_footer_content_item">
+            <h2>Sobre:</h2>
+            <p>
+              Com FoxieSnap é mais fácil gerenciar sua empresa de fotografia.
+              Simples, poderoso e gratuito, por que de complicado já basta a
+              vida.
+            </p>
+            <a title="Termos de uso" href="./termos.html">Termos de uso</a>
+          </article>
+
+          <article class="main_footer_content_item">
+            <h2>Mais:</h2>
+            <a class="link transition radius" title="Home" href="index.html"
+              >Home</a
+            >
+            <a class="link transition radius" title="Sobre" href="sobre.html"
+              >Sobre</a
+            >
+            <a class="link transition radius" title="Blog" href="blog.html"
+              >Blog</a
+            >
+            <a class="link transition radius" title="Entrar" href="login.html"
+              >Entrar</a
+            >
+          </article>
+
+          <article class="main_footer_content_item">
+            <h2>Contato:</h2>
+            <p class="icon-phone">
+              <b>Telefone:</b><br />
+              +55 12 98236-5340
+            </p>
+            <p class="icon-envelope">
+              <b>Email:</b><br />
+              contato@foxiesnap.com
+            </p>
+            <p class="icon-map-marker">
+              <b>Endereço:</b><br />
+              São José dos Campos, SP/Brasil
+            </p>
+          </article>
+
+          <article class="main_footer_content_item social">
+            <h2>Social:</h2>
+            <a
+              target="_blank"
+              class="icon-facebook"
+              href="https://www.facebook.com/"
+              title="FoxieSnap no Facebook"
+              >/FoxieSnap</a
+            >
+            <a
+              target="_blank"
+              class="icon-instagram"
+              href="https://www.instagram.com/"
+              title="FoxieSnap no Instagram"
+              >@FoxieSnap</a
+            >
+            <a
+              target="_blank"
+              class="icon-youtube"
+              href="https://www.youtube.com/"
+              title="FoxieSnap no YouTube"
+              >/FoxieSnap</a
+            >
+          </article>
+        </section>
+      </div>
+    </footer>
+    <script src="./assets/jquery.min.js"></script>
+    <script src="./assets/jquery-ui.js"></script>
+    <script src="./assets/scripts.js"></script>
+  </body>
+</html>

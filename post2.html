@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoxieSnap - Blog</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./assets/images/favicon.png"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <div class="ajax_load">
+      <div class="ajax_load_box">
+        <div class="ajax_load_box_circle"></div>
+        <p class="ajax_load_box_title">Aguarde, carregando...</p>
+      </div>
+    </div>
+
+    <!--HEADER-->
+    <header class="main_header gradient gradient-blue">
+      <div class="container">
+        <div class="main_header_logo">
+          <a title="Foxie Snap" href="./index.html">
+            <img src="./assets/images/logo_foxiesnap.png" alt="FoxieSnap" />
+          </a>
+        </div>
+
+        <nav class="main_header_nav">
+          <span
+            class="main_header_nav_mobile j_menu_mobile_open icon-menu icon-notext radius transition"
+          ></span>
+          <div class="main_header_nav_links j_menu_mobile_tab">
+            <span
+              class="main_header_nav_mobile_close j_menu_mobile_close icon-error icon-notext transition"
+            ></span>
+            <a class="link transition radius" title="Home" href="index.html"
+              >Home</a
+            >
+            <a class="link transition radius" title="Sobre" href="sobre.html"
+              >Sobre</a
+            >
+            <a class="link transition radius" title="Blog" href="blog.html"
+              >Blog</a
+            >
+            <a
+              class="link login transition radius"
+              title="Acessar"
+              href="login.html"
+              >Acessar</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <article class="post_page">
+      <header class="post_page_header">
+        <div class="post_page_hero">
+          <h1>Aprenda a criar um Componente de Notificação para seu Site</h1>
+          <img
+            class="post_page_cover"
+            alt="Aprenda a criar um Componente de Notificação para seu Site"
+            title="Aprenda a criar um Componente de Notificação para seu Site"
+            src="./assets/blog/aprenda-a-criar-um-componente-de-notificacao-para-seu-site-1527515035.jpg"
+          />
+          <div class="post_page_meta">
+            <div class="author">
+              <div>
+                <img alt="Foxie" title="Foxie" src="./assets/images/logo.png" />
+              </div>
+              <div class="name">Por: Foxie</div>
+            </div>
+            <div class="date">Dia 08/01/2023</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="post_page_content">
+        <div class="htmlchars">
+          <h2>
+            Nessa aula eu vou te mostrar como que você marca o HTML, estiliza
+            com CSS e adiciona os eventos necessários para trafegar com as
+            informações via ajax ter um sistema de notificação completo para sua
+            aplicação
+          </h2>
+          <p>
+            Salve salve moquerido, Foxie aqui e vou te mostrar como criar um
+            componente <strong>CSS</strong> bastante utilizado nos sites para
+            notificar os usuários e visitantes.
+          </p>
+          <p>
+            Atendendo o pedido de mais um aluno, dessa vez vamos ver como montar
+            toda a estrutura para colocar de forma discreta e eficaz uma área
+            específica para notificações sem que atrapalhe a navegação e que
+            cumpra com o seu objetivo.
+          </p>
+          <p>
+            Embora criar esse tipo de componente seja bastante fácil com
+            <strong>HTML</strong> e <strong>CSS</strong>, quando entramos na
+            parte de que precisamos colocar alguns efeitos e eventos, você pode
+            acabar imaginando que isso é mais difícil, ou então não compreende
+            como conciliar todas as linguagens...
+          </p>
+          <p>Fique tranquilo, porque vamos ver como resolver tudo isso.</p>
+          <h3>Processos</h3>
+          <p>
+            Para começar, a primeira coisa que vamos fazer é montar uma
+            estrutura básica de <strong>HTML</strong> servindo todos os recursos
+            necessários. No nosso caso, eu coloquei somente um texto e o ícone.
+            Você pode optar por ter um título e um texto de descrição, uma área
+            mais discreta reservada para o código de um erro, você pode também
+            formatar um link para que em casos extremos mande um e-mail para o
+            administrador do sistema (e nesse caso faz o uso do link)... Tudo
+            aqui fica a seu critério!
+          </p>
+          <p>
+            Próximo passo é estilizar essa estrutura! Primeiramente a nossa área
+            reservada, então para isso vamos colocar uma área no topo da página
+            a direita, com um certo espaçamento e na frente de todos os outros
+            elementos... Aqui vamos trabalhar um pouco com position para criar.
+          </p>
+          <p>
+            Depois, vamos estilizar o <strong>trigger_notify</strong> de fato...
+            Colocar cor, bordas, fonte, espaçamento e tudo o que você julgar
+            necessário, e por fim vamos para o javascript!
+          </p>
+          <p>
+            Aqui a aula começa a ficar um pouco "bagunçada", mas fique tranquilo
+            que tudo ficará legal no final! O processo aqui é descontruir o que
+            fizemos diretamente no código e colocar tudo isso baseado num
+            evento, num efeito de forma que fique exatamente como planejamos no
+            início.
+          </p>
+          <p>
+            E é claro, não vamos esquecer daquela barrinha de timer no final.
+          </p>
+          <h3>Comunicação</h3>
+          <p>
+            Para fazer todo o tramite entre a aplicação e o componente, vamos
+            trabalhar com ajax para fazer as requisições. Aqui está um passo
+            importante para que você compreenda por onde e como as informações
+            são trabalhadas.
+          </p>
+          <p>
+            Num primeiro momento, caso você não tenha muita familiariadade com o
+            jQuery, ou então com o ajax, isso pode parecer um pouco bagunçado,
+            fora de ordem... Mas se parar para analisar com calma, vai ver que
+            toda a informação segue por um caminho lógico. Explico:
+          </p>
+          <p>
+            <strong
+              >A primeira coisa que vamos fazer na aula é capturar o evento de
+              submeter o formulário:</strong
+            >
+            Com isso a gente para a atualização da página cada vez que o form é
+            submetido, e nesse meio tempo a gente faz os tratamentos
+            necessários.
+          </p>
+          <p>
+            <strong>O ajax é quem manda as informações para o PHP:</strong> Uma
+            vez que o javascript pegou os dados do formulário, ele não tem o que
+            fazer! Portanto, de uma forma "transparente", enviamos os dados para
+            o php (que no nosso caso é o controller.php) para que ele dê sentido
+            a essas informações.
+          </p>
+          <p>
+            <strong>Sua regra de negócio está no controlador:</strong> Aqui as
+            informações deixam de estar dentro do javascript e passam novamente
+            para o PHP, onde será analisado minuciosamente o que deve ser feito.
+            Seja cadastrar um artigo, editar um usuário ou qualquer outra
+            atividade do seu sistema. Aplicado sua regra de negócio basicamente
+            você tem 3 possíveis resultados [sucesso, erro, alerta] e basta que
+            você alimente as informações necessárias para disparar a
+            notificação.
+          </p>
+          <p>
+            <strong>Somente a resposta volta para o javascript:</strong> Você
+            receberá somente os parâmetros que foram setados dentro do
+            controlador como resposta. Agora basta que você identifique essa
+            resposta, e dê sentido a essas informações. No nosso caso, como
+            retornamos um vetor com uma posição "notify" e este continha todas
+            as propriedades necessárias é só fazer a mágica acontecer.
+          </p>
+          <p>
+            Invoque a função que você criou na aula anterior: Se todos os passos
+            forem executados com sucesso, você chegará até aqui e terá a
+            notificação sendo exibida na sua página.
+          </p>
+          <h3>Conclusão</h3>
+          <p>
+            Nessa a gente conseguiu montar um componente quase que por completo!
+            Se você assistiu a aula, notou que eu informei que temos um certo
+            gargalo aqui... O ideal é que tenhamos uma classe no PHP que seja
+            capaz de gerenciar e invocar essas notificações quando necessário.
+            Colocar esse conteúdo na aula, iria levar mais um bom tempo e a aula
+            ficaria muito extensa, e como essa foi a dúvida inicial do
+            solicitante... Missão dada, é missão cumprida!
+          </p>
+          <p>
+            Caso você tenha dificuldades em criar essa classe para gerenciar
+            suas triggers, é só fazer um pedido aqui no play que eu faço a
+            gravação dela também :)
+          </p>
+          <p>
+            Me conta aqui abaixo o que você achou dessa aula, se conseguiu
+            reproduzir junto comigo o mesmo efeito e se era tão complexo/simples
+            quanto você imaginava!
+          </p>
+          <p>Aquele forte abraço, e a gente se vê numa próxima aula.</p>
+        </div>
+
+        <aside class="social_share">
+          <h3 class="social_share_title icon-heartbeat">
+            Ajude seus amigos a gerenciar:
+          </h3>
+          <div class="social_share_medias">
+            <!--facebook-->
+            <div
+              class="fb-share-button"
+              data-href=""
+              data-layout="button_count"
+              data-size="large"
+              data-mobile-iframe="true"
+            >
+              <a target="_blank" href="" class="fb-xfbml-parse-ignore"
+                >Compartilhar</a
+              >
+            </div>
+
+            <!--twitter-->
+            <a
+              href=""
+              class="twitter-share-button"
+              data-size="large"
+              data-text=""
+              data-url=""
+              data-via=""
+              data-show-count="true"
+              >Tweet</a
+            >
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="footer_optout">
+      <div class="footer_optout_content content">
+        <img class="icon" src="./assets/images/logo.png" alt="logo" />
+        <h2>Comece a gerenciar seus ensaios agora mesmo</h2>
+        <p>É rápido e simples!</p>
+        <a
+          href="./cadastro.html"
+          class="footer_optout_btn gradient gradient-blue gradient-hover radius icon-check-square-o"
+        >
+          Quero gerenciar
+        </a>
+      </div>
+    </article>
+    <!--FOOTER-->
+    <footer class="main_footer">
+      <div class="container content">
+        <section class="main_footer_content">
+          <article class="main_footer_content_item">
+            <h2>Sobre:</h2>
+            <p>
+              Com FoxieSnap é mais fácil gerenciar sua empresa de fotografia.
+              Simples, poderoso e gratuito, por que de complicado já basta a
+              vida.
+            </p>
+            <a title="Termos de uso" href="./termos.html">Termos de uso</a>
+          </article>
+
+          <article class="main_footer_content_item">
+            <h2>Mais:</h2>
+            <a class="link transition radius" title="Home" href="index.html"
+              >Home</a
+            >
+            <a class="link transition radius" title="Sobre" href="sobre.html"
+              >Sobre</a
+            >
+            <a class="link transition radius" title="Blog" href="blog.html"
+              >Blog</a
+            >
+            <a class="link transition radius" title="Entrar" href="login.html"
+              >Entrar</a
+            >
+          </article>
+
+          <article class="main_footer_content_item">
+            <h2>Contato:</h2>
+            <p class="icon-phone">
+              <b>Telefone:</b><br />
+              +55 12 98236-5340
+            </p>
+            <p class="icon-envelope">
+              <b>Email:</b><br />
+              contato@foxiesnap.com
+            </p>
+            <p class="icon-map-marker">
+              <b>Endereço:</b><br />
+              São José dos Campos, SP/Brasil
+            </p>
+          </article>
+
+          <article class="main_footer_content_item social">
+            <h2>Social:</h2>
+            <a
+              target="_blank"
+              class="icon-facebook"
+              href="https://www.facebook.com/"
+              title="FoxieSnap no Facebook"
+              >/FoxieSnap</a
+            >
+            <a
+              target="_blank"
+              class="icon-instagram"
+              href="https://www.instagram.com/"
+              title="FoxieSnap no Instagram"
+              >@FoxieSnap</a
+            >
+            <a
+              target="_blank"
+              class="icon-youtube"
+              href="https://www.youtube.com/"
+              title="FoxieSnap no YouTube"
+              >/FoxieSnap</a
+            >
+          </article>
+        </section>
+      </div>
+    </footer>
+    <script src="./assets/jquery.min.js"></script>
+    <script src="./assets/jquery-ui.js"></script>
+    <script src="./assets/scripts.js"></script>
+  </body>
+</html>
